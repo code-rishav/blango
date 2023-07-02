@@ -5,14 +5,14 @@ from django.shortcuts import get_object_or_404,render,redirect
 from blog.forms import CommentForm
 # Create your views here.
 def index(request):
-  posts = Post.objects.filter(published_at__lte=timezone.now())
+  posts = Post.objects.all()
   return render(request,"blog/index.html",{"post":posts})
 
 def post_detail(request,slug):
   if request.user.is_active:
 
     if request.method == "POST":
-      comment_form = CommentFrom(request.form)
+      comment_form = CommentForm(request.form)
 
       if comment_form.is_valid():
         comment = comment_form.save(commit=False)
