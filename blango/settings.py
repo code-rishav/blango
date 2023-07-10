@@ -55,13 +55,12 @@ class Dev(Configuration):
       'rest_framework.authtoken',
       'drf_yasg',
   ]
-
-    SWAGGER_SETTINGS = {
+  SWAGGER_SETTINGS = {
     "SECURITY_DEFINITIONS": {
-        "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
-        "Basic": {"type": "basic"},
-        }
+    "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
+    "Basic": {"type": "basic"},
     }
+  }
 
   REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
@@ -73,6 +72,10 @@ class Dev(Configuration):
         "rest_framework.permissions.IsAuthenticatedOrReadOnly",
     ],
   }
+
+
+
+
   MIDDLEWARE = [
       'django.middleware.security.SecurityMiddleware',
       'django.contrib.sessions.middleware.SessionMiddleware',
